@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>UPDATE VIEW</h1>
+    
+    <form action="/update/<%= @one_post.id %>" method="POST">
+        제목 <input type="text" size="10" name="title" value="<%= @one_post.title %>"><br>
+        내용<br>
+        <textarea rows="7" cols="120" class="form-control" name="content"><%= @one_post.content %></textarea>
+        <button type="submit">제출</button>
+    </form>
+</div>

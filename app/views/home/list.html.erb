@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>EVERY POST</h1>
+            <a href="#"><h1>이거 누르면 없어짐</h1></a>
+            
+            <% @all_post.each do |p| %>
+                <div class="well">
+                    제목: <%= p.title %><br>
+                    내용: <%= p.content %><br><br>
+                    
+                    <% p.replies.each do |r| %>
+                        <%= r.content2 %>
+                        <a href="/reply_updateview/<%= r.id %>">[수정]</a>
+                        <a href="/reply_destroy/<%= r.id %>">[삭제]</a><br>
+                    <% end %>
+                    
+                    
+                    <form action="/reply_write" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" name="id_of_post" value="<%= p.id %>">
+                            <textarea name="content2" rows="3" cols="100" class="form-control"></textarea>
+                            <button type="submit">댓글 등록</button>
+                        </div>
+                    </form>
+                    <a href="/update_view/<%= p.id %>">[수정]</a>
+                    <a href="/destroy/<%= p.id %>">[삭제]</a>
+                </div>
+            <% end %>
+            
+            
+            <a href="/">MAIN</a>
+            
+            <script>
+                $( "p" ).hide();
+                $( "a" ).click(function( event ) {
+                  event.preventDefault();
+                  $( this ).hide();
+                });
+            </script>
+        </div>
+    </body>
+</html>

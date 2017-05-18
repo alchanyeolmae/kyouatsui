@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>UPDATE VIEW</h1>
+    
+    <form action="/reply_update/<%= @one_reply.id %>" method="POST">
+        
+        <textarea rows="7" cols="120" class="form-control" name="content2"><%= @one_reply.content2 %></textarea>
+        <button type="submit">제출</button>
+    </form>
+</div>

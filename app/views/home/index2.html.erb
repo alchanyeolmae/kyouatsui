@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+          p {
+            position: relative;
+            width: 400px;
+            height: 90px;
+          }
+          div {
+            position: absolute;
+            width: 400px;
+            height: 65px;
+            font-size: 36px;
+            text-align: center;
+            color: black;
+            background: blue;
+            padding-top: 25px;
+            top: 0;
+            left: 0;
+            display: none;
+          }
+          span {
+            display: none;
+          }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>WRITE WHAT YOU WANT</h1>
+    
+            <form action="/write" method="POST">
+                제목 <input type="text" size="10" name="title"><br>
+                내용<br>
+                <textarea rows="7" cols="120" class="form-control" name="content"></textarea>
+                <button type="submit">등록</button>
+            </form>
+        </div>
+        
+        <p>
+          여기를...누르면요...뭔가가 뜹니다...
+          근데...안 예뻐요....(<a href="/home/index">click!</a>)
+          <div><span>POP UP!</span></div>
+        </p>
+        
+        <script>
+          $( "a" ).click(function() {
+            $( "div" ).fadeIn( 3000, function() {
+              $( "span" ).fadeIn( 100 );
+            });
+            return false;
+          });
+        </script>
+          
+    </body>
+</html>
